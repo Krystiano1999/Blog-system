@@ -1,0 +1,197 @@
+/* Kolory bazowe */
+:root {
+    --color-primary: #f5480d;   /* Pomarańczowy */
+    --color-dark-blue: #0f314d; /* Ciemny niebieski */
+    --color-white: #fffffe;     /* Biały */
+    --color-yellow: #f2f726;    /* Żółty */
+    --color-white-opa: rgba(255,255,255,0.85);   /* Biały z opacity */
+}
+
+html, body{
+    margin: 0 !important;
+}
+/* Globalne ustawienia */
+body {
+    background-color: var(--color-white);
+    color: var(--color-dark-blue);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Animacja kropek */
+.floating-dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-yellow);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: orbit 6s linear infinite;
+    z-index: 1; /* Pod treścią, nad tłem */
+}
+
+/* Pozycjonowanie kropek */
+.hero .floating-dot:nth-child(2) { top: 40%; left: 20%; transform-origin: -40px -40px; }
+.hero .floating-dot:nth-child(3) { top: 40%; left: 40%; transform-origin: -60px -60px; animation-duration: 8s; }
+.hero .floating-dot:nth-child(4) { top: 60%; left: 40%; transform-origin: -80px -80px; animation-duration: 10s; }
+
+/* Animacja okrężna */
+@keyframes orbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+nav#menu{
+    background-color: var(--color-white-opa);
+    transform:translateX(-50%);
+    left:50%;
+    top:40px;
+    padding: 5px 25px;
+    border-radius:30px;
+    z-index: 1000000000000;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+nav#menu .navbar-brand{
+    color: var(--color-dark-blue);
+    font-weight:600;
+}
+
+nav#menu .navbar-brand span{
+    color: var(--color-primary);
+    font-weight:700;
+}
+
+nav#menu .nav-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    position: relative;
+    padding: 8px 16px;
+    transition: color 0.3s ease;
+}
+
+nav#menu .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-dark-blue);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav#menu .nav-link:hover {
+    color: var(--color-dark-blue);
+}
+
+nav#menu .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Przyciski */
+.btn{
+    border-radius: 30px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark-blue);
+    border-color: var(--color-dark-blue);
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-blue);
+    border-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Nagłówki */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-dark-blue);
+    font-weight: bold;
+}
+
+/* Linki */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-dark-blue);
+    text-decoration: none;
+}
+
+/* Sekcja Hero */
+.hero {
+    background-image: url('/images/seo2.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: auto 85vh;
+    height:90vh; 
+    max-height: 90vh;
+}
+
+.hero .title-absolute{
+    left: 25px;
+    top: 20px;
+    transform: translateY(-50%);
+}
+
+.hero h1{
+    font-weight: 600;
+}
+
+/* Sekcja O nas */
+.about-us {
+    background-color: var(--color-white);
+    color: var(--color-dark-blue);
+}
+
+/* Karty artykułów */
+.card {
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: var(--color-dark-blue);
+}
+
+.card-text {
+    color: var(--color-dark-blue);
+}
+
+/* Sekcja stopki */
+.footer {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.footer a {
+    color: var(--color-yellow);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
