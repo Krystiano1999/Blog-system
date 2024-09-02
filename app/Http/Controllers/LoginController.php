@@ -12,11 +12,6 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showLoginForm()
-    {
-        return view('auth.login');
-    }
-
     public function login(Request $request)
     {
         $request->validate([
@@ -25,7 +20,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->filled('remember'))) {
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->intended('/panel-admin');
         }
 
         return back()->withErrors([
