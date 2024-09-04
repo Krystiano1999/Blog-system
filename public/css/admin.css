@@ -4,9 +4,24 @@
     --color-dark-blue: #0f314d; /* Ciemny niebieski */
     --color-white: #fffffe;     /* Biały */
     --color-yellow: #f2f726;    /* Żółty */
-    --color-white-opa: rgba(255,255,255,0.85);   /* Biały z opacity */
+    --color-white-opa: rgba(255, 255, 255, 0.85);   /* Biały z opacity */
 }
 
+/* Reset domyślnych marginesów i paddingów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styl dla ciała dokumentu */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Styl dla głównego kontenera pełnoekranowego */
 .full-screen-container {
     display: flex;
     justify-content: center;
@@ -16,6 +31,7 @@
     background: linear-gradient(135deg, var(--color-dark-blue) 0%, var(--color-primary) 100%);
 }
 
+/* Styl dla kontenera logowania */
 .login-container {
     display: flex;
     max-width: 1000px;
@@ -25,6 +41,7 @@
     overflow: hidden;
 }
 
+/* Sekcja po lewej stronie ekranu logowania */
 .login-left {
     position: relative;
     flex: 1;
@@ -64,6 +81,7 @@
     line-height: 1.6;
 }
 
+/* Sekcja po prawej stronie ekranu logowania */
 .login-right {
     flex: 1;
     background: var(--color-white);
@@ -75,6 +93,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* Formularz logowania */
 .login-form {
     width: 100%;
     max-width: 400px;
@@ -130,7 +149,7 @@
 }
 
 .btn-primary:hover {
-    background: darken(var(--color-primary), 10%);
+    background: #d0430d;
     box-shadow: 0 4px 15px rgba(245, 72, 13, 0.3);
 }
 
@@ -149,5 +168,77 @@
 }
 
 .forgot-password-link:hover {
-    color: darken(var(--color-primary), 10%);
+    color: #d0430d;
+}
+
+/* Sidebar w panelu admina */
+.sidebar {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar .nav-link {
+    color: var(--color-white-opa);
+    padding: 10px 20px;
+    display: block;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Główna zawartość */
+.main-content {
+    padding: 30px;
+    background-color: var(--color-white);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-info h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.progress {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Tabela w panelu admina */
+.table {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    border-top: none;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    padding: 20px;
+    text-align: center;
 }

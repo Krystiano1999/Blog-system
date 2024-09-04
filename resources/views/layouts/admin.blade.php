@@ -19,22 +19,26 @@
 <body>
 
     <!-- Navigation -->
-    @if (!Request::is('login') && !Request::is('password/reset*'))
-        @include('admin.partials.navbar')
-    @endif
+    @include('admin.partials.navbar')
 
-    <div class="container-fluid mx-0 px-0">
-        @yield('content')
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            @include('admin.partials.sidebar')
+
+            <!-- Main Content -->
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
+                @yield('content')
+            </main>
+        </div>
     </div>
 
     <!-- Footer -->
-    @if (!Request::is('login') && !Request::is('password/reset*'))
-        <footer class="footer bg-dark text-white text-center py-3">
-            <div class="container">
-                &copy; {{ date('Y') }} Panel Admina - Artykuły SEO. All rights reserved.
-            </div>
-        </footer>
-    @endif
+    <footer class="footer bg-dark text-white text-center py-3">
+        <div class="container">
+            &copy; {{ date('Y') }} Panel Admina - Artykuły SEO. All rights reserved.
+        </div>
+    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>

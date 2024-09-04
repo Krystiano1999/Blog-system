@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ViewController;
+use App\Http\Controllers\Admin\AdminController;
 
 Route::get('/', function () {
     return view('site.home.index');
@@ -26,5 +27,9 @@ Route::post('password/reset', [ForgotPasswordController::class, 'reset'])->name(
 
 Route::group(['middleware' => ['role:admin,super_admin,author']], function () {
     Route::get('/panel-admin', [ViewController::class, 'showDashboard'])->name('admin.dashboard');
+    Route::get('/panel-admin/articles', [AdminController::class, 'articles'])->name('admin.articles');
+    Route::get('/panel-admin/categories', [AdminController::class, 'categories'])->name('admin.categories');
+    Route::get('/panel-admin/comments', [AdminController::class, 'comments'])->name('admin.comments');
+    Route::get('/panel-admin/users', [AdminController::class, 'users'])->name('admin.users');
 });
 
