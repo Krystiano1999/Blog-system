@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
@@ -10,7 +10,7 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function dashboard()
+    public function showDashboard()
     {
         // Pobieranie liczby artykułów, kategorii, komentarzy i użytkowników
         $articleCount = Article::count() ?? 0;
