@@ -1,9 +1,14 @@
 /* Kolory bazowe */
 :root {
-    --color-primary: #f5480d;   /* Pomarańczowy */
-    --color-dark-blue: #0f314d; /* Ciemny niebieski */
-    --color-white: #fffffe;     /* Biały */
-    --color-yellow: #f2f726;    /* Żółty */
+    --color-primary: #00475d;   /* Primary - Niebieski */
+    --color-dark: #11121d;      /* Ciemny - Prawie czarny */
+    --color-light: #fee0d3;     /* Jasny - Ciepły beżowy */
+    --color-white: #ffffff;     /* Biały */
+    --color-secondary: #18837a; /* Secondary - Zielony */
+    --color-info: #e76029;      /* Informacyjny - Pomarańczowy */
+    --color-success: #00a052;   /* Sukces - Zielony */
+    --color-warning: #e6c800;   /* Ostrzeżenie - Żółty */
+    --color-danger: #f30017;    /* Niebezpieczeństwo - Czerwony */
     --color-white-opa: rgba(255, 255, 255, 0.85);   /* Biały z opacity */
 }
 
@@ -17,8 +22,8 @@
 /* Styl dla ciała dokumentu */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--color-light);
+    color: var(--color-dark);
 }
 
 /* Styl dla głównego kontenera pełnoekranowego */
@@ -28,7 +33,7 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(135deg, var(--color-dark-blue) 0%, var(--color-primary) 100%);
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);
 }
 
 /* Styl dla kontenera logowania */
@@ -124,7 +129,7 @@ body {
 
 .form-control:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 10px rgba(245, 72, 13, 0.2);
+    box-shadow: 0 0 10px rgba(0, 71, 93, 0.2);
 }
 
 .form-check-input {
@@ -149,12 +154,12 @@ body {
 }
 
 .btn-primary:hover {
-    background: #d0430d;
-    box-shadow: 0 4px 15px rgba(245, 72, 13, 0.3);
+    background: #003a4d;
+    box-shadow: 0 4px 15px rgba(0, 71, 93, 0.3);
 }
 
 .error {
-    color: red;
+    color: var(--color-danger);
     margin-top: 10px;
     text-align: center;
     font-size: 0.9rem;
@@ -168,12 +173,12 @@ body {
 }
 
 .forgot-password-link:hover {
-    color: #d0430d;
+    color: #003a4d;
 }
 
 /* Sidebar w panelu admina */
 .sidebar {
-    background-color: var(--color-dark-blue);
+    background-color: var(--color-dark);
     color: var(--color-white);
     height: 100vh;
     padding: 20px;
@@ -237,7 +242,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: var(--color-dark-blue);
+    background-color: var(--color-dark);
     color: var(--color-white);
     padding: 20px;
     text-align: center;
