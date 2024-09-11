@@ -7,6 +7,9 @@
         <div class="login-container">
             <div class="login-left">
                 <div class="overlay"></div>
+                
+                <img src="{{ asset('images/admin/svg/logo-no-background.svg') }}" alt="Logo" class="admin-logo">
+
                 <h1>Panel Admina</h1>
                 <p>Witaj w panelu administracyjnym! Zaloguj się, aby zarządzać swoją stroną i treściami.</p>
             </div>
