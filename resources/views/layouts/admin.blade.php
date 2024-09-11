@@ -17,31 +17,30 @@
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
+    <div class="wrapper d-flex">
+        <!-- Sidebar -->
+        @include('admin.partials.sidebar')
 
-    <!-- Navigation -->
-    @include('admin.partials.navbar')
-
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            @include('admin.partials.sidebar')
-
-            <!-- Main Content -->
-            <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
-                @yield('content')
-            </main>
-        </div>
+        
+        <!-- Main content section -->
+        <main class="content-section">
+            @include('admin.partials.navbar')
+            @yield('content')
+        </main>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer bg-dark text-white text-center py-3">
-        <div class="container">
-            &copy; {{ date('Y') }} Panel Admina - Artykuły SEO. All rights reserved.
-        </div>
-    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/admin.js') }}"></script>
+
+    <script>
+        // Hamburger toggle functionality
+        document.getElementById('hamburgerIcon').addEventListener('click', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.getElementById('mainContent');
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+            this.classList.toggle('collapsed');
+        });
+    </script>
 </body>
 </html>
