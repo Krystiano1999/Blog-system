@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\User;
 
-class AdminController extends Controller
+
+class AdminViewController extends Controller
 {
     public function showDashboard()
     {
-        // Pobieranie liczby artykułów, kategorii, komentarzy i użytkowników
         $articleCount = Article::count() ?? 0;
         $categoryCount = Category::count() ?? 0;
         $commentCount = Comment::count() ?? 0;
@@ -23,21 +23,26 @@ class AdminController extends Controller
 
     public function showArticle()
     {
-        return view('admin.article.index');
+        $articles = Article::with('user', 'category')->paginate(10);
+        return view('admin.article.index', compact('articles'));
     }
 
     public function showCategory()
     {
-        return view('admin.category.index');
+        $categories = Category::paginate(10);
+        return view('admin.category.index', compact('categories'));
     }
 
     public function showUser()
     {
-        return view('admin.users.index');
+        $users = User::all();
+        return view('admin.users.index', compact('users'));
     }
 
     public function showComments()
     {
         return view('admin.comments.index');
     }
+
+
 }

@@ -1,3 +1,4 @@
+<!-- Widok dla zarządzania użytkownikami -->
 @extends('layouts.admin')
 
 @section('title', 'Zarządzanie Użytkownikami')

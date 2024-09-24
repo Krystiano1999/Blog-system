@@ -8,13 +8,6 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-    // Wyświetla listę kategorii
-    public function index()
-    {
-        $categories = Category::paginate(10);
-        return view('categories.index', compact('categories'));
-    }
-
     // Pokaż formularz tworzenia nowej kategorii
     public function create()
     {

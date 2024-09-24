@@ -12,13 +12,6 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
-    // Wyświetla listę artykułów
-    public function index()
-    {
-        $articles = Article::with('user', 'category')->paginate(10);
-        return view('articles.index', compact('articles'));
-    }
-
     // Pokaż formularz tworzenia nowego artykułu
     public function create()
     {

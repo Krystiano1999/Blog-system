@@ -8,12 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserManagementController extends Controller
 {
-    public function index()
-    {
-        $users = User::all();
-        return view('admin.users.index', compact('users'));
-    }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([

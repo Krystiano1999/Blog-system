@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminViewController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ViewController;
@@ -27,13 +27,16 @@ Route::post('password/reset', [ForgotPasswordController::class, 'reset'])->name(
 
 // Trasy panelu administracyjnego z middleware
 Route::group(['middleware' => ['role:admin,super_admin,author']], function () {
-    Route::get('/panel-admin', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
-    Route::get('/panel-admin/articles', [AdminController::class, 'showArticle'])->name('admin.articles');
-    Route::get('/panel-admin/categories', [AdminController::class, 'showCategory'])->name('admin.categories');
-    Route::get('/panel-admin/comments', [AdminController::class, 'comments'])->name('admin.comments');
-    Route::get('/panel-admin/users', [AdminController::class, 'showUser'])->name('admin.users');
+    Route::get('/panel-admin', [AdminViewController::class, 'showDashboard'])->name('admin.dashboard');
+    Route::get('/panel-admin/articles', [AdminViewController::class, 'showArticle'])->name('admin.articles');
+    Route::get('/panel-admin/categories', [AdminViewController::class, 'showCategory'])->name('admin.categories');
+    Route::get('/panel-admin/comments', [AdminViewController::class, 'showComments'])->name('admin.comments');  
+    Route::get('/panel-admin/users', [AdminViewController::class, 'showUser'])->name('admin.users');
+
+    // Trasy do zarządzania użytkownikami
+    Route::post('/panel-admin/users', [UserManagementController::class, 'store'])->name('admin.users.store');
+    Route::put('/panel-admin/users/{user}', [UserManagementController::class, 'update'])->name('admin.users.update');
+    Route::delete('/panel-admin/users/{user}', [UserManagementController::class, 'destroy'])->name('admin.users.destroy');
+
 });
-
-
-
 
