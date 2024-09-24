@@ -20,4 +20,19 @@ class AdminController extends Controller
 
         return view('admin.dashboard', compact('articleCount', 'categoryCount', 'commentCount', 'userCount'));
     }
+
+    public function showArticle()
+    {
+        return view('admin.article.index');
+    }
+
+    public function showCategory()
+    {
+        return view('admin.category.index');
+    }
+
+    public function showUser()
+    {
+        return view('admin.users.index')
+    }
 }

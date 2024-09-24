@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('articles*') ? 'active' : '' }}" href="#">
+                <a class="nav-link {{ Request::is('panel-admin/article') ? 'active' : '' }}" href="#">
                     <i class="fas fa-file-alt me-2"></i> <span>Artykuły</span>
                 </a>
             </li>
