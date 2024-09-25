@@ -38,5 +38,13 @@ Route::group(['middleware' => ['role:admin,super_admin,author']], function () {
     Route::put('/panel-admin/users/{user}', [UserManagementController::class, 'update'])->name('admin.users.update');
     Route::delete('/panel-admin/users/{user}', [UserManagementController::class, 'destroy'])->name('admin.users.destroy');
 
+    // Trasy do zarządzania artykułami
+    Route::get('articles/create', [ArticleController::class, 'create'])->name('admin.article.create');
+    Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
+    Route::get('articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
+    Route::get('articles/{article}/edit', [ArticleController::class, 'edit'])->name('admin.article.edit');
+    Route::put('articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
+    Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('admin.article.destroy');
+
 });
 
