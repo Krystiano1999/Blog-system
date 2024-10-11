@@ -12,13 +12,20 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
+    // Wyświetl listę artykułów
+    public function index()
+    {
+        $articles = Article::with('user', 'category')->paginate(10);
+        return view('admin.articles.index', compact('articles'));
+    }
+
     // Pokaż formularz tworzenia nowego artykułu
     public function create()
     {
         $categories = Category::all();
         $tags = Tag::all();
         $companies = Company::all();
-        return view('articles.create', compact('categories', 'tags', 'companies'));
+        return view('admin.articles.create', compact('categories', 'tags', 'companies'));
     }
 
     // Przechowaj nowy artykuł w bazie danych
@@ -53,13 +60,13 @@ class ArticleController extends Controller
         $article->tags()->sync($request->tags);
         $article->companies()->sync($request->companies);
 
-        return redirect()->route('articles.show', $article)->with('success', 'Artykuł został utworzony.');
+        return redirect()->route('admin.articles.show', $article)->with('success', 'Artykuł został utworzony.');
     }
 
     // Wyświetl konkretny artykuł
     public function show(Article $article)
     {
-        return view('articles.show', compact('article'));
+        return view('admin.articles.show', compact('article'));
     }
 
     // Pokaż formularz edycji artykułu
@@ -71,7 +78,7 @@ class ArticleController extends Controller
         $tags = Tag::all();
         $companies = Company::all();
 
-        return view('articles.edit', compact('article', 'categories', 'tags', 'companies'));
+        return view('admin.articles.edit', compact('article', 'categories', 'tags', 'companies'));
     }
 
     // Zaktualizuj istniejący artykuł w bazie danych
@@ -110,7 +117,7 @@ class ArticleController extends Controller
         $article->tags()->sync($request->tags);
         $article->companies()->sync($request->companies);
 
-        return redirect()->route('articles.show', $article)->with('success', 'Artykuł został zaktualizowany.');
+        return redirect()->route('admin.articles.show', $article)->with('success', 'Artykuł został zaktualizowany.');
     }
 
     // Usuń artykuł z bazy danych
@@ -129,6 +136,6 @@ class ArticleController extends Controller
 
         $article->delete();
 
-        return redirect()->route('articles.index')->with('success', 'Artykuł został usunięty.');
+        return redirect()->route('admin.articles.index')->with('success', 'Artykuł został usunięty.');
     }
 }

@@ -39,12 +39,13 @@ Route::group(['middleware' => ['role:admin,super_admin,author']], function () {
     Route::delete('/panel-admin/users/{user}', [UserManagementController::class, 'destroy'])->name('admin.users.destroy');
 
     // Trasy do zarządzania artykułami
-    Route::get('articles/create', [ArticleController::class, 'create'])->name('admin.article.create');
-    Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
-    Route::get('articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
-    Route::get('articles/{article}/edit', [ArticleController::class, 'edit'])->name('admin.article.edit');
-    Route::put('articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
-    Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('admin.article.destroy');
+    Route::get('articles', [ArticleController::class, 'index'])->name('admin.articles.index');
+    Route::get('articles/create', [ArticleController::class, 'create'])->name('admin.articles.create');
+    Route::post('articles', [ArticleController::class, 'store'])->name('admin.articles.store');
+    Route::get('articles/{article}', [ArticleController::class, 'show'])->name('admin.articles.show');
+    Route::get('articles/{article}/edit', [ArticleController::class, 'edit'])->name('admin.articles.edit');
+    Route::put('articles/{article}', [ArticleController::class, 'update'])->name('admin.articles.update');
+    Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('admin.articles.destroy');
 
 });
 
