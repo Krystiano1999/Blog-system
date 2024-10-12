@@ -97,3 +97,8 @@ main {
 .hamburger{
     color: var(--color-light);
 }
+
+main.content-section div.container{
+    max-height: calc(100% - 80px);
+    overflow-y: auto;
+}
