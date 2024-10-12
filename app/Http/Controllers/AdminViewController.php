@@ -24,7 +24,7 @@ class AdminViewController extends Controller
     public function showArticle()
     {
         $articles = Article::with('user', 'category')->paginate(10);
-        return view('admin.article.index', compact('articles'));
+        return view('admin.articles.index', compact('articles'));
     }
 
     public function showCategory()
