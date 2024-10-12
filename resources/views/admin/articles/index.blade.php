@@ -3,7 +3,7 @@
 @section('title', 'Lista Artykułów')
 
 @section('content')
-<div class="container mt-4">
+<div class="container pt-4">
     <h1>Lista Artykułów</h1>
     <a href="{{ route('admin.articles.create') }}" class="btn btn-success mb-3">Dodaj Nowy Artykuł</a>
 
